@@ -942,7 +942,7 @@ export default function WeddingInvitation() {
                       <div className="space-y-12 relative z-10">
                         <div className="space-y-6">
                           <p className="text-[#2d5a27] text-xl md:text-2xl font-light italic leading-relaxed text-center">
-                            “අපගේ ආදර කතාවේ අලංකාරම පරිච්ඡේදය ඔබ සමඟ සැමරීමට අප සතුටින් බලා සිටිමු.”
+                            “අපගේ ආදර ගමනේ අමතක නොවන මේ සොඳුරු දිනය, ඔබගේ සෙනෙහසින් තවත් අලංකාර කරගැනීමට අප සතුටින් බලා සිටිමු.”
                           </p>
                           <div className="h-0.5 w-12 bg-[#a2c5a0]/60 mx-auto" />
                         </div>
@@ -1017,7 +1017,7 @@ export default function WeddingInvitation() {
                   </h2>
 
                   <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.25em] font-medium leading-loose max-w-3xl mx-auto">
-                    අපගේ විශේෂ දිනය ඔබ සමඟ ආදරයෙන් සැමරීමට අපි බලා සිටිමු.
+                    සෙනෙහසින් ලියැවෙන අපගේ ජීවිත කතාවේ සුන්දරතම දිනය, ඔබගේ පැමිණීමෙන් තවත් අර්ථවත් වනු ඇතැයි අප විශ්වාස කරමු
                   </p>
 
                   <div className="pt-6 flex flex-col items-center gap-4 text-center w-full max-w-xl mx-auto">
