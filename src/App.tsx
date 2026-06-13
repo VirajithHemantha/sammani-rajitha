@@ -4,18 +4,18 @@ import { Sparkles, MapPin, Calendar, Clock, ChevronDown } from "lucide-react";
 
 const INVITATION = {
   couple: {
-    bride: "සයුරි",
-    groom: "චතුර",
-    brideFull: "සයුරි",
-    groomFull: "චතුර",
+    bride: "සම්මානි",
+    groom: "රජිත",
+    brideFull: "සම්මානි",
+    groomFull: "රජිත",
   },
   date: {
-    displayNumeric: "05 . 11 . 2026",
-    displayLong: "බ්‍රහස්පතින්දා, 05 නොවැම්බර් 2026",
-    countdownTarget: "2026-11-05T10:02:00+05:30",
+    displayNumeric: "23 . 07 . 2026",
+    displayLong: "බ්‍රහස්පතින්දා, 23 ජූලි 2026",
+    countdownTarget: "2026-07-23T10:00:00+05:30",
   },
   time: {
-    ceremonyStart: "පෙ.ව. 10:02",
+    ceremonyStart: "පෙ.ව. 10.00",
     ceremonyEnd: "පෙ.ව. 10:32",
     registration: "පෙ.ව. 10:45",
     welcome: "පෙ.ව. 11:00",
@@ -43,9 +43,7 @@ const PRE_IMAGES = [
   preImagePath("WhatsApp Image 2026-05-14 at 00.19.35.jpeg"),
   preImagePath("WhatsApp Image 2026-05-14 at 00.20.09.jpeg"),
 ];
-
-const HERO_BACKGROUND_IMAGE = PRE_IMAGES[4];
-
+const HERO_BACKGROUND_IMAGE = publicImagePath("ChatGPT Image Jun 8, 2026, 02_43_56 AM.png");
 function FloatingPetals() {
   const [isLowPowerMode, setIsLowPowerMode] = useState(false);
   const [petals, setPetals] = useState<
@@ -197,69 +195,8 @@ function CountdownTimer({ isDark = false }: { isDark?: boolean }) {
   );
 }
 
-function Gallery() {
-  const marqueeImages = [...PRE_IMAGES, ...PRE_IMAGES, ...PRE_IMAGES];
-
-  return (
-    <section className="relative py-14 md:py-40 bg-transparent overflow-hidden">
-      <div className="w-full relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-6 mb-10 md:mb-16 px-6"
-        >
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-[#1b4332] font-bold tracking-[0.8em] text-sm md:text-base opacity-40 uppercase">
-              Captured Moments
-            </span>
-            <div className="h-px w-16 bg-[#52b788]/30" />
-          </div>
-          <h2 className="text-5xl md:text-8xl bg-gradient-to-r from-[#3f7a39] via-[#2d5a27] to-[#3f7a39] bg-clip-text text-transparent italic leading-none">
-            සුන්දර මතක
-          </h2>
-          <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.3em] font-medium max-w-2xl mx-auto pt-2 leading-loose">
-            අපගේ ආදර කතාවේ සුන්දරතම මොහොතක් ඔබ සමඟ බෙදා ගැනීමට අප සතුටින් බලා සිටිමු.
-          </p>
-        </motion.div>
-
-        <div className="relative flex overflow-x-hidden w-full py-4 mask-gradient">
-          <motion.div
-            className="flex gap-6 md:gap-10 pr-6 md:pr-10 shrink-0"
-            animate={{
-              x: [0, "-33.33%"],
-            }}
-            transition={{
-              ease: "linear",
-              duration: 25,
-              repeat: Infinity,
-            }}
-          >
-            {marqueeImages.map((img, i) => (
-              <div
-                key={`${img}-${i}`}
-                className="relative w-[280px] h-[380px] md:w-[350px] md:h-[480px] shrink-0 overflow-hidden rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(45,90,39,0.15)] border border-emerald-100/30 group"
-              >
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700 z-10" />
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-4 border border-white/20 rounded-[2rem] z-20 pointer-events-none group-hover:inset-6 transition-all duration-700" />
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function WeddingInvitation() {
-  const [hasStarted, setHasStarted] = useState(false);
-  const [isOpened, setIsOpened] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasAttemptedAutoplay, setHasAttemptedAutoplay] = useState(false);
 
@@ -271,7 +208,6 @@ export default function WeddingInvitation() {
   const [rsvpStatus, setRsvpStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const audioRef = React.useRef<HTMLAudioElement>(null);
-  const introVideoRef = React.useRef<HTMLVideoElement>(null);
 
   const submitToGoogleSheet = async (payload: Record<string, string>) => {
     if (!googleScriptUrl) {
@@ -328,7 +264,7 @@ export default function WeddingInvitation() {
   };
 
   useEffect(() => {
-    if (isOpened && !isPlaying && !hasAttemptedAutoplay && audioRef.current) {
+    if (!isPlaying && !hasAttemptedAutoplay && audioRef.current) {
       setHasAttemptedAutoplay(true);
 
       audioRef.current
@@ -350,174 +286,20 @@ export default function WeddingInvitation() {
           window.addEventListener("click", playOnInteraction);
         });
     }
-  }, [isOpened, isPlaying, hasAttemptedAutoplay]);
+  }, [isPlaying, hasAttemptedAutoplay]);
 
-  useEffect(() => {
-    if (introVideoRef.current && !hasStarted) {
-      introVideoRef.current.play().catch((err) => {
-        console.log("Intro video autoplay failed:", err);
-      });
-    }
-  }, [hasStarted]);
 
   return (
-    <main
-      className={`dl-manel-bold h-[100dvh] w-full bg-[#fae9cb] transition-all duration-1000 ${isOpened ? "overflow-y-auto overflow-x-hidden" : "overflow-hidden flex items-center justify-center"
-        } relative scroll-smooth`}
-    >
+    <main className="dl-manel-bold h-[100dvh] w-full bg-[#fae9cb] overflow-y-auto overflow-x-hidden relative scroll-smooth">
       <FloatingPetals />
 
       <AnimatePresence mode="wait">
-        {!isOpened ? (
-          <motion.div
-            key="video-stage"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 1.2 } }}
-            className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden"
-          >
-            <video
-              ref={introVideoRef}
-              src="/intro_video.mp4"
-              muted={!hasStarted}
-              playsInline
-              preload="auto"
-              autoPlay
-              loop={!hasStarted}
-              className={`w-full h-full object-cover transition-all duration-[2000ms] ease-out ${!hasStarted ? "blur-md scale-105 opacity-80" : "blur-0 scale-100 opacity-100"
-                }`}
-              onEnded={() => setIsOpened(true)}
-              onError={() => setIsOpened(true)}
-            />
-
-            {!hasStarted && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-black/40 backdrop-blur-[2px]">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className="text-center"
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="mb-12"
-                  >
-                    <h2 className="text-4xl md:text-6xl text-white mb-2 drop-shadow-2xl">
-                      ස්වස්ති සිද්ධම්
-                    </h2>
-                    <p className="text-xl md:text-2xl text-[#dcebe1] tracking-[0.3em] drop-shadow-lg">
-                      {INVITATION.couple.bride} සහ {INVITATION.couple.groom}
-                    </p>
-                  </motion.div>
-
-                  <button
-                    onClick={() => {
-                      setHasStarted(true);
-
-                      if (introVideoRef.current) {
-                        introVideoRef.current.muted = false;
-                        introVideoRef.current.loop = false;
-                        introVideoRef.current.currentTime = 0;
-                        introVideoRef.current.play().catch((err) => console.log(err));
-                      }
-                    }}
-                    className="group relative px-12 py-5 overflow-hidden rounded-full transition-all duration-500 hover:scale-105 active:scale-95"
-                  >
-                    <div className="absolute inset-0 bg-[#2d5a27] opacity-90 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <span className="relative z-10 font-bold text-white text-sm tracking-[0.35em]">
-                      ආරාධනය විවෘත කරන්න
-                    </span>
-                  </button>
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.6 }}
-                    transition={{ delay: 1.5 }}
-                    className="mt-8 text-white/50 text-xs tracking-[0.35em]"
-                  >
-                    ආරම්භ කිරීමට ක්ලික් කරන්න
-                  </motion.div>
-                </motion.div>
-              </div>
-            )}
-
-            {hasStarted && (
-              <>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, delay: 0.5 }}
-                  className="absolute inset-0 flex flex-col items-center justify-start pt-[30vh] md:pt-32 z-[105] pointer-events-none text-center px-6"
-                >
-                  <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 2, delay: 0.8 }}
-                    className="text-3xl md:text-7xl text-white mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-                  >
-                    විවාහ ආරාධනයයි!
-                  </motion.h2>
-
-                  <div className="flex flex-col items-center w-full max-w-[280px] mx-auto">
-                    <motion.p
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 2, delay: 1.2 }}
-                      className="text-3xl md:text-6xl text-white tracking-[0.3em] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] self-start"
-                    >
-                      {INVITATION.couple.bride}
-                    </motion.p>
-
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 2, delay: 1.5 }}
-                      className="text-2xl md:text-4xl text-white/80 italic drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] my-1"
-                    >
-                      &
-                    </motion.span>
-
-                    <motion.p
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 2, delay: 1.8 }}
-                      className="text-3xl md:text-6xl text-white/90 tracking-[0.4em] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] self-end"
-                    >
-                      {INVITATION.couple.groom}
-                    </motion.p>
-                  </div>
-                </motion.div>
-
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  onClick={() => setIsOpened(true)}
-                  className="absolute bottom-10 right-10 z-[110] px-8 py-3 bg-white/10 backdrop-blur-md text-white text-xs tracking-[0.35em] rounded-full border border-white/20 hover:bg-white/20 transition-all font-bold"
-                >
-                  ආරාධනයට පිවිසෙන්න
-                </motion.button>
-              </>
-            )}
-          </motion.div>
-        ) : (
           <motion.div
             key="website-stage"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="website-shell relative z-20 w-full"
           >
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              onClick={() => setIsOpened(false)}
-              className="fixed top-6 right-6 z-50 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-lg border border-emerald-100 text-[#2d5a27] hover:bg-emerald-50 transition-colors"
-            >
-              <div className="flex flex-col items-center">
-                <div className="text-[11px] tracking-widest font-bold">වසා දමන්න</div>
-              </div>
-            </motion.button>
 
             <section className="w-full relative flex items-start justify-center overflow-hidden bg-transparent min-h-[85vh] pt-20 md:pt-32">
               <div
@@ -620,17 +402,17 @@ export default function WeddingInvitation() {
 
                   <div className="text-[#2d5a27] space-y-6 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
                     <p className="text-slate-700">
-                      උපාලි ගනේවත්ත මහතාගේ සහ නාලනී උයන්වත්ත මහත්මියගේ ආදරණීය දියණිය වන
+                      රත්නසිරි මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
                     </p>
                     <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
-                      සයුරි,
+                      සම්මානි,
                     </h3>
 
                     <p className="text-slate-700">
-                      ඕ. කේ. අලුත්ගමගේ මහතාගේ සහ රංජනී රාජපක්ෂ මහත්මියගේ ආදරණීය පුත් වන
+                      ධර්මප්‍රිය මහතාගේ සහ මහත්මියගේ ආදරණීය පුත් වන
                     </p>
                     <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
-                      චතුර
+                      රජිත
                     </h3>
 
                     <p className="text-slate-700 max-w-2xl mx-auto pt-2">
@@ -638,14 +420,14 @@ export default function WeddingInvitation() {
                     </p>
 
                     <div className="py-6 my-4 border-t border-b border-[#a2c5a0]/50 space-y-3 font-semibold text-[#2d5a27]">
-                      <p>2026 නොවැම්බර් මස 05 වන ගුරු දින,</p>
+                      <p>2026 ජූලි මස 23 වන බ්‍රහස්පතින්දා,</p>
                       <p>අමායා හිල්ස් උත්සව ශාලා පරිශ්‍රයට,</p>
                       <p>ඔබට</p>
                       <p className="text-lg md:text-xl font-bold">පැමිණෙන මෙන් ගෞරවයෙන් ආරාධනා කර සිටිමු.</p>
                     </div>
 
                     <p className="text-[#3f7a39] font-bold text-sm md:text-base">
-                      (පෝරුවේ චාරිත්‍ර පෙ.ව. 10.02 ට)
+                      (පෝරුවේ චාරිත්‍ර පෙ.ව. 10.00 සිට)
                     </p>
 
                     <p className="text-[#2d5a27] font-bold text-lg md:text-xl mt-6">
@@ -723,7 +505,7 @@ export default function WeddingInvitation() {
                             වේලාව
                           </div>
                           <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
-                            පෝරුව චාරිත්‍ර {INVITATION.time.ceremonyStart}ට
+                            පෝරුව චාරිත්‍ර {INVITATION.time.ceremonyStart} සිට
                           </div>
                         </div>
                       </div>
@@ -820,181 +602,6 @@ export default function WeddingInvitation() {
               </div>
             </section>
 
-            <Gallery />
-
-
-            <section className="relative py-16 md:py-48 bg-transparent flex flex-col items-center overflow-hidden">
-              <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center relative z-10 w-full">
-                <motion.h2
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-2xl md:text-4xl text-slate-800 tracking-[0.3em] mb-8 md:mb-12 text-center"
-                >
-                  පැමිණීම තහවුරු කිරීම
-                </motion.h2>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  viewport={{ once: true }}
-                  className="relative w-full max-w-[650px] bg-white p-6 md:p-10 shadow-[0_40px_100px_-25px_rgba(0,0,0,0.12)] border border-slate-100 flex flex-col items-center"
-                >
-                  <div className="w-full border border-slate-300 rounded-[1.5rem] p-6 md:p-8 flex flex-col items-center">
-                    <h3 className="text-2xl md:text-4xl text-slate-800 mb-8 text-center">
-                      ඔබ පැමිණෙන්නේද?
-                    </h3>
-
-                    <form className="w-full space-y-6 text-left" onSubmit={handleRsvpSubmit}>
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-slate-500 ml-1">ඔබගේ නම</label>
-                        <input
-                          type="text"
-                          placeholder="ඔබගේ නම මෙහි ලියන්න..."
-                          value={rsvpForm.name}
-                          onChange={(e) => {
-                            setRsvpStatus("idle");
-                            setRsvpForm((prev) => ({ ...prev, name: e.target.value }));
-                          }}
-                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-slate-400 transition-all text-base font-numeric"
-                          required
-                        />
-                      </div>
-
-                      <div className="space-y-4 pt-2">
-                        <label className="text-xs font-bold text-slate-500 ml-1">
-                          අපගේ විශේෂ දිනයට ඔබ පැමිණෙන්නේද?
-                        </label>
-
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setRsvpStatus("idle");
-                            setRsvpForm((prev) => ({ ...prev, guests: "1" }));
-                          }}
-                          aria-pressed={rsvpForm.guests !== "0"}
-                          className="w-full bg-[#f3f3f3] hover:bg-slate-200 text-slate-700 py-5 md:py-6 rounded-xl text-sm md:text-base tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98]"
-                        >
-                          ඔව්, මම ආදරයෙන් පැමිණෙන්නම්!
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setRsvpStatus("idle");
-                            setRsvpForm((prev) => ({ ...prev, guests: "0" }));
-                          }}
-                          aria-pressed={rsvpForm.guests === "0"}
-                          className="w-full bg-[#f3f3f3] hover:bg-slate-200 text-slate-700 py-5 md:py-6 rounded-xl text-sm md:text-base tracking-wide transition-all shadow-sm flex items-center justify-center px-4 leading-relaxed active:scale-[0.98]"
-                        >
-                          කණගාටුයි, මට පැමිණිය නොහැක. නමුත් මගේ ආශීර්වාදය ඔබ සමඟයි.
-                        </button>
-                      </div>
-
-                      {(rsvpStatus === "success" || rsvpStatus === "error") && (
-                        <p
-                          className={`text-xs text-center font-semibold ${rsvpStatus === "success" ? "text-emerald-600" : "text-red-500"
-                            }`}
-                        >
-                          {rsvpStatus === "success"
-                            ? "ඔබගේ පැමිණීම තහවුරු කිරීම සාර්ථකව යවා ඇත."
-                            : "කරුණාකර ඔබගේ නම ඇතුළත් කර නැවත උත්සාහ කරන්න."}
-                        </p>
-                      )}
-
-                      <div className="pt-6">
-                        <button
-                          type="submit"
-                          disabled={rsvpStatus === "sending"}
-                          className="w-full bg-[#2d5a27] text-white py-4 md:py-5 rounded-xl text-sm md:text-base tracking-[0.2em] font-bold hover:bg-[#1a5c4a] transition-all shadow-md disabled:opacity-70"
-                        >
-                          {rsvpStatus === "sending" ? "යවමින්..." : "තහවුරු කරන්න"}
-                        </button>
-
-                        <p className="text-xs text-slate-400 mt-4 text-center leading-relaxed">
-                          ඔබගේ ප්‍රතිචාරය පුද්ගලිකව තබා ගනු ලැබේ.
-                        </p>
-                      </div>
-                    </form>
-                  </div>
-                </motion.div>
-
-
-              </div>
-            </section>
-
-            <section className="relative py-14 md:py-48 bg-transparent overflow-hidden">
-              <div className="container mx-auto px-6 max-w-7xl relative z-10 text-center">
-
-
-                <div className="flex justify-center w-full">
-                  <div className="w-full max-w-[560px] text-left">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2, duration: 0.8 }}
-                      className="bg-white p-10 md:p-16 shadow-[0_60px_100px_-40px_rgba(45,90,39,0.1)] border border-[#a2c5a0]/30 relative group"
-                    >
-                      <div className="absolute inset-2 border-[0.5px] border-[#3f7a39]/20 pointer-events-none group-hover:border-[#3f7a39]/40 transition-colors duration-700" />
-
-                      <div className="space-y-12 relative z-10">
-                        <div className="space-y-6">
-                          <p className="text-[#2d5a27] text-xl md:text-2xl font-light italic leading-relaxed text-center">
-                            “අපගේ ආදර ගමනේ අමතක නොවන මේ සොඳුරු දිනය, ඔබගේ සෙනෙහසින් තවත් අලංකාර කරගැනීමට අප සතුටින් බලා සිටිමු.”
-                          </p>
-                          <div className="h-0.5 w-12 bg-[#a2c5a0]/60 mx-auto" />
-                        </div>
-
-                        <div className="space-y-10">
-                          <div className="flex items-start gap-8">
-                            <div className="w-12 h-12 rounded-full border border-[#3f7a39]/20 flex items-center justify-center shrink-0">
-                              <MapPin className="w-5 h-5 text-[#3f7a39]" />
-                            </div>
-                            <div className="space-y-3">
-                              <h4 className="text-[#2d5a27]/40 font-bold text-xs tracking-[0.5em]">
-                                ගමනාන්තය
-                              </h4>
-                              <p className="text-xl md:text-2xl text-[#2d5a27] leading-relaxed tracking-wide font-bold">
-                                {INVITATION.venue.name}, {INVITATION.venue.city}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-8">
-                            <div className="w-12 h-12 rounded-full border border-[#3f7a39]/20 flex items-center justify-center shrink-0">
-                              <Clock className="w-5 h-5 text-[#3f7a39]" />
-                            </div>
-                            <div className="space-y-1">
-                              <h4 className="text-[#2d5a27]/40 font-bold text-xs tracking-[0.5em]">
-                                පෝරුව චාරිත්‍ර
-                              </h4>
-                              <p className="text-xl md:text-2xl text-[#2d5a27] leading-relaxed tracking-wide font-bold">
-                                {INVITATION.time.ceremonyStart}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <button
-                          onClick={() => window.open(INVITATION.venue.googleMapsLink, "_blank")}
-                          className="w-full group relative inline-flex items-center justify-center gap-4 py-6 bg-[#2d5a27] text-white text-sm md:text-base font-bold tracking-[0.45em] overflow-hidden transition-all hover:bg-black shadow-xl mt-4"
-                        >
-                          <div className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
-                          <span className="relative z-10 flex items-center gap-3">
-                            <MapPin className="w-4 h-4" />
-                            සිතියම විවෘත කරන්න
-                          </span>
-                        </button>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-
 
 
             <section className="w-full relative overflow-hidden bg-transparent py-14 md:py-32">
@@ -1020,18 +627,7 @@ export default function WeddingInvitation() {
                     සෙනෙහසින් ලියැවෙන අපගේ ජීවිත කතාවේ සුන්දරතම දිනය, ඔබගේ පැමිණීමෙන් තවත් අර්ථවත් වනු ඇතැයි අප විශ්වාස කරමු
                   </p>
 
-                  <div className="pt-6 flex flex-col items-center gap-4 text-center w-full max-w-xl mx-auto">
-                    <div className="h-px w-24 bg-[#2d5a27]/20" />
-                    <p className="text-slate-500 text-xs tracking-[0.4em] font-bold mt-2">
-                      සම්බන්ධතා
-                    </p>
 
-                    <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-[#2d5a27]/70 text-base tracking-widest font-normal">
-                      {INVITATION.rsvpContacts.map((line) => (
-                        <p key={line}>{line}</p>
-                      ))}
-                    </div>
-                  </div>
 
                   <p className="text-sm md:text-base tracking-[0.5em] text-[#2d5a27]/50 font-bold pt-12">
                     © 2026 {INVITATION.couple.bride} සහ {INVITATION.couple.groom}
@@ -1040,7 +636,6 @@ export default function WeddingInvitation() {
               </div>
             </section>
           </motion.div>
-        )}
       </AnimatePresence>
 
       <audio ref={audioRef} src={backgroundMusic} loop />
