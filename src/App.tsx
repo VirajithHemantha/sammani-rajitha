@@ -43,7 +43,7 @@ const PRE_IMAGES = [
   preImagePath("WhatsApp Image 2026-05-14 at 00.19.35.jpeg"),
   preImagePath("WhatsApp Image 2026-05-14 at 00.20.09.jpeg"),
 ];
-const HERO_BACKGROUND_IMAGE = publicImagePath("ChatGPT Image Jun 8, 2026, 02_43_56 AM.png");
+const HERO_BACKGROUND_IMAGE = "/d.jpeg";
 function FloatingPetals() {
   const [isLowPowerMode, setIsLowPowerMode] = useState(false);
   const [petals, setPetals] = useState<
@@ -294,348 +294,347 @@ export default function WeddingInvitation() {
       <FloatingPetals />
 
       <AnimatePresence mode="wait">
-          <motion.div
-            key="website-stage"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="website-shell relative z-20 w-full"
-          >
+        <motion.div
+          key="website-stage"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="website-shell relative z-20 w-full"
+        >
 
             <section className="w-full relative flex items-start justify-center overflow-hidden bg-transparent min-h-[85vh] pt-20 md:pt-32">
               <div
-                className="absolute inset-0 bg-center bg-cover opacity-30"
+                className="absolute inset-0 bg-[center_top] bg-cover opacity-40"
                 style={{ backgroundImage: `url("${HERO_BACKGROUND_IMAGE}")` }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-0 bg-white/20" aria-hidden="true" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-[#fae9cb]" aria-hidden="true" />
 
-              <div className="relative z-10 w-full max-w-5xl px-6 text-center">
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-sm md:text-base tracking-[0.6em] font-bold text-[#2d5a27] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+            <div className="relative z-10 w-full max-w-5xl px-6 text-center">
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-sm md:text-base tracking-[0.6em] font-bold text-[#2d5a27] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+              >
+                විවාහ ආරාධනයයි!
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.8 }}
+                className="mt-10"
+              >
+                <h1 className="text-6xl sm:text-7xl md:text-8xl text-[#2d5a27] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  {INVITATION.couple.bride}
+                </h1>
+
+                <div className="mt-6 flex items-center justify-center gap-5">
+                  <div className="h-px w-14 bg-[#2d5a27]/40" />
+                  <span className="text-4xl md:text-5xl text-[#2d5a27] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold">සහ</span>
+                  <div className="h-px w-14 bg-[#2d5a27]/40" />
+                </div>
+
+                <h1 className="mt-6 text-6xl sm:text-7xl md:text-8xl text-[#2d5a27] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  {INVITATION.couple.groom}
+                </h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.8 }}
+                className="mt-12 space-y-5"
+              >
+                <p className="text-sm md:text-base tracking-[0.35em] text-[#2d5a27] font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                  {INVITATION.date.displayLong}
+                </p>
+
+                <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.15em] font-medium leading-loose max-w-2xl mx-auto">
+                  අපගේ ජීවිතයේ අමතක නොවන සුබ මොහොත ඔබ සමඟ බෙදා ගැනීමට කැමැත්තෙමු!
+                </p>
+
+                <a
+                  href="#details"
+                  className="inline-flex items-center justify-center gap-2 mt-6 px-8 py-4 bg-[#2d5a27] text-white text-sm md:text-base font-bold tracking-[0.4em] shadow-xl hover:bg-black transition-colors"
                 >
-                  විවාහ ආරාධනයයි!
-                </motion.p>
+                  විස්තර බලන්න
+                  <ChevronDown className="w-4 h-4" />
+                </a>
+              </motion.div>
+            </div>
 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.9 }}
+              transition={{ delay: 1.1, duration: 1 }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+            >
+              <div className="w-px h-14 bg-gradient-to-b from-[#2d5a27]/30 to-transparent rounded-full overflow-hidden">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15, duration: 0.8 }}
-                  className="mt-10"
-                >
-                  <h1 className="text-6xl sm:text-7xl md:text-8xl text-[#2d5a27] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
-                    {INVITATION.couple.bride}
-                  </h1>
+                  animate={{ y: [-56, 56] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-full h-1/2 bg-[#3f7a39]/45"
+                />
+              </div>
+            </motion.div>
+          </section>
 
-                  <div className="mt-6 flex items-center justify-center gap-5">
-                    <div className="h-px w-14 bg-[#2d5a27]/40" />
-                    <span className="text-4xl md:text-5xl text-[#2d5a27] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold">සහ</span>
-                    <div className="h-px w-14 bg-[#2d5a27]/40" />
+          <section
+            id="details"
+            className="relative pt-8 md:pt-20 pb-12 md:pb-32 w-full flex flex-col items-center bg-transparent overflow-hidden"
+          >
+            <div className="absolute inset-4 md:inset-8 border-[1.5px] border-[#2d5a27]/20 pointer-events-none z-10" />
+            <div className="absolute inset-5 md:inset-10 border-[0.5px] border-[#61a85c]/10 pointer-events-none z-10" />
+
+            <div className="max-w-[1100px] w-full flex flex-col items-center text-center relative z-20 px-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center mb-16 space-y-6"
+              >
+                <div className="flex items-center gap-4 opacity-40">
+                  <div className="h-px w-8 bg-[#2d5a27]" />
+                  <Sparkles className="w-4 h-4 text-[#3f7a39]" />
+                  <div className="h-px w-8 bg-[#2d5a27]" />
+                </div>
+
+                <div className="text-[#2d5a27] space-y-6 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
+                  <p className="text-slate-700">
+                    රත්නසිරි මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
+                  </p>
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
+                    සම්මානි,
+                  </h3>
+
+                  <p className="text-slate-700">
+                    ධර්මප්‍රිය මහතාගේ සහ මහත්මියගේ ආදරණීය පුත් වන
+                  </p>
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
+                    රජිත
+                  </h3>
+
+                  <p className="text-slate-700 max-w-2xl mx-auto pt-2">
+                    සමඟ අතිනත ගන්නා සොඳුරු මොහොත, ඔබගේ ආශීර්වාදයෙන් වර්ණවත් කර ගැනීම සඳහා,
+                  </p>
+
+                  <div className="py-6 my-4 border-t border-b border-[#a2c5a0]/50 space-y-3 font-semibold text-[#2d5a27]">
+                    <p>2026 ජූලි මස 23 වන බ්‍රහස්පතින්දා,</p>
+                    <p>අමායා හිල්ස් උත්සව ශාලා පරිශ්‍රයට,</p>
+                    <p>ඔබට</p>
+                    <p className="text-lg md:text-xl font-bold">පැමිණෙන මෙන් ගෞරවයෙන් ආරාධනා කර සිටිමු.</p>
                   </div>
 
-                  <h1 className="mt-6 text-6xl sm:text-7xl md:text-8xl text-[#2d5a27] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
-                    {INVITATION.couple.groom}
-                  </h1>
-                </motion.div>
+                  <p className="text-[#3f7a39] font-bold text-sm md:text-base">
+                    (පෝරුවේ චාරිත්‍ර පෙ.ව. 10.00 සිට)
+                  </p>
 
+                  <p className="text-[#2d5a27] font-bold text-lg md:text-xl mt-6">
+                    ඔබගේ සහභාගිත්වය අප දෙදෙනාට මහත් ආශීර්වාදයකි!
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-8"
+              >
+                <h2 className="text-xl md:text-2xl text-[#3f7a39] tracking-[0.5em] font-bold">
+                  ශ්‍රී සුභ මංගලම්
+                </h2>
+              </motion.div>
+
+              <div className="relative w-full flex flex-col items-center justify-center my-8 md:my-12 mb-12 md:mb-24">
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35, duration: 0.8 }}
-                  className="mt-12 space-y-5"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="relative z-20 w-full max-w-[560px] bg-white p-8 md:p-14 shadow-[0_30px_70px_-15px_rgba(45,90,39,0.1)] border border-[#a2c5a0]/30 flex flex-col items-center justify-center text-center"
                 >
-                  <p className="text-sm md:text-base tracking-[0.35em] text-[#2d5a27] font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
-                    {INVITATION.date.displayLong}
-                  </p>
+                  <div className="absolute inset-2 border-[0.5px] border-[#3f7a39]/30 pointer-events-none" />
 
-                  <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.15em] font-medium leading-loose max-w-2xl mx-auto">
-                    අපගේ ජීවිතයේ අමතක නොවන සුබ මොහොත ඔබ සමඟ බෙදා ගැනීමට කැමැත්තෙමු!
-                  </p>
+                  <div className="space-y-5 mb-10">
+                    <div className="flex flex-col items-center gap-2">
+                      <h3 className="text-5xl md:text-7xl text-[#3f7a39] leading-none">
+                        {INVITATION.couple.bride}
+                      </h3>
+                    </div>
+                  </div>
 
-                  <a
-                    href="#details"
-                    className="inline-flex items-center justify-center gap-2 mt-6 px-8 py-4 bg-[#2d5a27] text-white text-sm md:text-base font-bold tracking-[0.4em] shadow-xl hover:bg-black transition-colors"
-                  >
-                    විස්තර බලන්න
-                    <ChevronDown className="w-4 h-4" />
-                  </a>
+                  <div className="py-2 flex items-center justify-center w-full relative">
+                    <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                      <div className="w-full border-t border-[#a2c5a0]/50" />
+                    </div>
+                    <div className="relative flex justify-center">
+                      <span className="bg-white px-6 text-4xl text-[#3f7a39]">සමඟ</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-5 mt-10">
+                    <div className="flex flex-col items-center gap-2">
+                      <h3 className="text-5xl md:text-7xl text-[#3f7a39] leading-none">
+                        {INVITATION.couple.groom}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="mt-12 grid grid-cols-1 gap-6 w-full text-left">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full border border-[#3f7a39]/20 flex items-center justify-center shrink-0">
+                        <Calendar className="w-4 h-4 text-[#3f7a39]" />
+                      </div>
+                      <div>
+                        <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
+                          දිනය
+                        </div>
+                        <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
+                          {INVITATION.date.displayLong}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full border border-[#2d5a27]/20 flex items-center justify-center shrink-0">
+                        <Clock className="w-4 h-4 text-[#2d5a27]" />
+                      </div>
+                      <div>
+                        <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
+                          වේලාව
+                        </div>
+                        <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
+                          පෝරුව චාරිත්‍ර {INVITATION.time.ceremonyStart} සිට
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full border border-[#2d5a27]/20 flex items-center justify-center shrink-0">
+                        <MapPin className="w-4 h-4 text-[#2d5a27]" />
+                      </div>
+                      <div>
+                        <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
+                          ස්ථානය
+                        </div>
+                        <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
+                          {INVITATION.venue.name}, {INVITATION.venue.city}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               </div>
+            </div>
+          </section>
+
+          <section className="relative py-14 md:py-48 bg-[#2d5a27] flex flex-col items-center overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 0.1, scale: 1 }}
+              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+              className="absolute -top-24 -right-24 w-96 h-96 bg-white blur-[100px] rounded-full pointer-events-none"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 0.1, scale: 1 }}
+              transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 1 }}
+              className="absolute -bottom-24 -left-24 w-96 h-96 bg-white blur-[100px] rounded-full pointer-events-none"
+            />
+
+            <div className="w-full max-w-[1200px] px-6 flex flex-col items-center text-center relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                className="relative mb-12 md:mb-20"
+              >
+                <div className="relative z-10 flex flex-col items-center">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "80px" }}
+                    viewport={{ once: true }}
+                    className="h-px bg-white/40 mb-8"
+                  />
+
+                  <h2 className="text-3xl md:text-6xl text-white tracking-[0.25em] md:tracking-[0.4em] font-bold leading-tight">
+                    මෙම දිනය <span className="mx-2 md:mx-4 text-[#dcebe1]">සුරකින්න</span>
+                  </h2>
+
+                  <div className="mt-10 flex items-center justify-center gap-6">
+                    <div className="h-[0.5px] w-8 md:w-16 bg-[#dcebe1]/50" />
+                    <span className="font-numeric text-3xl md:text-5xl text-[#dcebe1] drop-shadow-md">
+                      {INVITATION.date.displayNumeric}
+                    </span>
+                    <div className="h-[0.5px] w-8 md:w-16 bg-[#dcebe1]/50" />
+                  </div>
+                </div>
+              </motion.div>
+
+              <CountdownTimer isDark />
 
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.9 }}
-                transition={{ delay: 1.1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+                whileInView={{ opacity: 0.8 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="mt-12 md:mt-20 flex flex-col items-center gap-4"
               >
-                <div className="w-px h-14 bg-gradient-to-b from-[#2d5a27]/30 to-transparent rounded-full overflow-hidden">
-                  <motion.div
-                    animate={{ y: [-56, 56] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-full h-1/2 bg-[#3f7a39]/45"
-                  />
+                <p className="text-sm md:text-base tracking-[0.6em] text-white font-bold text-center">
+                  ආදරයෙන් පිරුණු මොහොතකට රැඳී සිටින්න
+                </p>
+
+                <div className="flex gap-2">
+                  {[1, 2, 3].map((i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                      className="w-1 h-1 bg-[#dcebe1] rotate-45"
+                    />
+                  ))}
                 </div>
               </motion.div>
-            </section>
+            </div>
+          </section>
 
-            <section
-              id="details"
-              className="relative pt-8 md:pt-20 pb-12 md:pb-32 w-full flex flex-col items-center bg-transparent overflow-hidden"
-            >
-              <div className="absolute inset-4 md:inset-8 border-[1.5px] border-[#2d5a27]/20 pointer-events-none z-10" />
-              <div className="absolute inset-5 md:inset-10 border-[0.5px] border-[#61a85c]/10 pointer-events-none z-10" />
 
-              <div className="max-w-[1100px] w-full flex flex-col items-center text-center relative z-20 px-6">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center mb-16 space-y-6"
-                >
-                  <div className="flex items-center gap-4 opacity-40">
-                    <div className="h-px w-8 bg-[#2d5a27]" />
-                    <Sparkles className="w-4 h-4 text-[#3f7a39]" />
-                    <div className="h-px w-8 bg-[#2d5a27]" />
-                  </div>
 
-                  <div className="text-[#2d5a27] space-y-6 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
-                    <p className="text-slate-700">
-                      රත්නසිරි මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
-                    </p>
-                    <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
-                      සම්මානි,
-                    </h3>
-
-                    <p className="text-slate-700">
-                      ධර්මප්‍රිය මහතාගේ සහ මහත්මියගේ ආදරණීය පුත් වන
-                    </p>
-                    <h3 className="text-3xl md:text-4xl font-bold text-[#3f7a39] my-2">
-                      රජිත
-                    </h3>
-
-                    <p className="text-slate-700 max-w-2xl mx-auto pt-2">
-                      සමඟ අතිනත ගන්නා සොඳුරු මොහොත, ඔබගේ ආශීර්වාදයෙන් වර්ණවත් කර ගැනීම සඳහා,
-                    </p>
-
-                    <div className="py-6 my-4 border-t border-b border-[#a2c5a0]/50 space-y-3 font-semibold text-[#2d5a27]">
-                      <p>2026 ජූලි මස 23 වන බ්‍රහස්පතින්දා,</p>
-                      <p>අමායා හිල්ස් උත්සව ශාලා පරිශ්‍රයට,</p>
-                      <p>ඔබට</p>
-                      <p className="text-lg md:text-xl font-bold">පැමිණෙන මෙන් ගෞරවයෙන් ආරාධනා කර සිටිමු.</p>
-                    </div>
-
-                    <p className="text-[#3f7a39] font-bold text-sm md:text-base">
-                      (පෝරුවේ චාරිත්‍ර පෙ.ව. 10.00 සිට)
-                    </p>
-
-                    <p className="text-[#2d5a27] font-bold text-lg md:text-xl mt-6">
-                      ඔබගේ සහභාගිත්වය අප දෙදෙනාට මහත් ආශීර්වාදයකි!
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="mb-8"
-                >
-                  <h2 className="text-xl md:text-2xl text-[#3f7a39] tracking-[0.5em] font-bold">
-                    ශ්‍රී සුභ මංගලම්
-                  </h2>
-                </motion.div>
-
-                <div className="relative w-full flex flex-col items-center justify-center my-8 md:my-12 mb-12 md:mb-24">
-                  <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="relative z-20 w-full max-w-[560px] bg-white p-8 md:p-14 shadow-[0_30px_70px_-15px_rgba(45,90,39,0.1)] border border-[#a2c5a0]/30 flex flex-col items-center justify-center text-center"
-                  >
-                    <div className="absolute inset-2 border-[0.5px] border-[#3f7a39]/30 pointer-events-none" />
-
-                    <div className="space-y-5 mb-10">
-                      <div className="flex flex-col items-center gap-2">
-                        <h3 className="text-5xl md:text-7xl text-[#3f7a39] leading-none">
-                          {INVITATION.couple.bride}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <div className="py-2 flex items-center justify-center w-full relative">
-                      <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                        <div className="w-full border-t border-[#a2c5a0]/50" />
-                      </div>
-                      <div className="relative flex justify-center">
-                        <span className="bg-white px-6 text-4xl text-[#3f7a39]">සමඟ</span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-5 mt-10">
-                      <div className="flex flex-col items-center gap-2">
-                        <h3 className="text-5xl md:text-7xl text-[#3f7a39] leading-none">
-                          {INVITATION.couple.groom}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <div className="mt-12 grid grid-cols-1 gap-6 w-full text-left">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full border border-[#3f7a39]/20 flex items-center justify-center shrink-0">
-                          <Calendar className="w-4 h-4 text-[#3f7a39]" />
-                        </div>
-                        <div>
-                          <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
-                            දිනය
-                          </div>
-                          <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
-                            {INVITATION.date.displayLong}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full border border-[#2d5a27]/20 flex items-center justify-center shrink-0">
-                          <Clock className="w-4 h-4 text-[#2d5a27]" />
-                        </div>
-                        <div>
-                          <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
-                            වේලාව
-                          </div>
-                          <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
-                            පෝරුව චාරිත්‍ර {INVITATION.time.ceremonyStart} සිට
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full border border-[#2d5a27]/20 flex items-center justify-center shrink-0">
-                          <MapPin className="w-4 h-4 text-[#2d5a27]" />
-                        </div>
-                        <div>
-                          <div className="text-[11px] tracking-[0.5em] font-bold text-[#2d5a27]/40">
-                            ස්ථානය
-                          </div>
-                          <div className="text-sm md:text-base text-[#2d5a27] tracking-wide font-bold">
-                            {INVITATION.venue.name}, {INVITATION.venue.city}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+          <section className="w-full relative overflow-hidden bg-transparent py-14 md:py-32">
+            <div className="container mx-auto px-6 max-w-5xl text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.0 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center justify-center gap-3 opacity-70">
+                  <div className="h-px w-10 bg-[#2d5a27]/20" />
+                  <Sparkles className="w-4 h-4 text-[#3f7a39]" />
+                  <div className="h-px w-10 bg-[#2d5a27]/20" />
                 </div>
-              </div>
-            </section>
 
-            <section className="relative py-14 md:py-48 bg-[#2d5a27] flex flex-col items-center overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
+                <h2 className="text-5xl md:text-7xl bg-gradient-to-r from-[#3f7a39] via-[#2d5a27] to-[#3f7a39] bg-clip-text text-transparent italic">
+                  ස්තූතියි
+                </h2>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 0.1, scale: 1 }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-                className="absolute -top-24 -right-24 w-96 h-96 bg-white blur-[100px] rounded-full pointer-events-none"
-              />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 0.1, scale: 1 }}
-                transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-                className="absolute -bottom-24 -left-24 w-96 h-96 bg-white blur-[100px] rounded-full pointer-events-none"
-              />
-
-              <div className="w-full max-w-[1200px] px-6 flex flex-col items-center text-center relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="relative mb-12 md:mb-20"
-                >
-                  <div className="relative z-10 flex flex-col items-center">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "80px" }}
-                      viewport={{ once: true }}
-                      className="h-px bg-white/40 mb-8"
-                    />
-
-                    <h2 className="text-3xl md:text-6xl text-white tracking-[0.25em] md:tracking-[0.4em] font-bold leading-tight">
-                      මෙම දිනය <span className="mx-2 md:mx-4 text-[#dcebe1]">සුරකින්න</span>
-                    </h2>
-
-                    <div className="mt-10 flex items-center justify-center gap-6">
-                      <div className="h-[0.5px] w-8 md:w-16 bg-[#dcebe1]/50" />
-                      <span className="font-numeric text-3xl md:text-5xl text-[#dcebe1] drop-shadow-md">
-                        {INVITATION.date.displayNumeric}
-                      </span>
-                      <div className="h-[0.5px] w-8 md:w-16 bg-[#dcebe1]/50" />
-                    </div>
-                  </div>
-                </motion.div>
-
-                <CountdownTimer isDark />
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.8 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 }}
-                  className="mt-12 md:mt-20 flex flex-col items-center gap-4"
-                >
-                  <p className="text-sm md:text-base tracking-[0.6em] text-white font-bold text-center">
-                    ආදරයෙන් පිරුණු මොහොතකට රැඳී සිටින්න
-                  </p>
-
-                  <div className="flex gap-2">
-                    {[1, 2, 3].map((i) => (
-                      <motion.div
-                        key={i}
-                        animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                        className="w-1 h-1 bg-[#dcebe1] rotate-45"
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </section>
+                <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.25em] font-medium leading-loose max-w-3xl mx-auto">
+                  සෙනෙහසින් ලියැවෙන අපගේ ජීවිත කතාවේ සුන්දරතම දිනය, ඔබගේ පැමිණීමෙන් තවත් අර්ථවත් වනු ඇතැයි අප විශ්වාස කරමු
+                </p>
 
 
 
-            <section className="w-full relative overflow-hidden bg-transparent py-14 md:py-32">
-              <div className="container mx-auto px-6 max-w-5xl text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.0 }}
-                  className="space-y-6"
-                >
-                  <div className="flex items-center justify-center gap-3 opacity-70">
-                    <div className="h-px w-10 bg-[#2d5a27]/20" />
-                    <Sparkles className="w-4 h-4 text-[#3f7a39]" />
-                    <div className="h-px w-10 bg-[#2d5a27]/20" />
-                  </div>
-
-                  <h2 className="text-5xl md:text-7xl bg-gradient-to-r from-[#3f7a39] via-[#2d5a27] to-[#3f7a39] bg-clip-text text-transparent italic">
-                    ස්තූතියි
-                  </h2>
-
-                  <p className="text-[#2d5a27]/70 text-sm md:text-base tracking-[0.25em] font-medium leading-loose max-w-3xl mx-auto">
-                    සෙනෙහසින් ලියැවෙන අපගේ ජීවිත කතාවේ සුන්දරතම දිනය, ඔබගේ පැමිණීමෙන් තවත් අර්ථවත් වනු ඇතැයි අප විශ්වාස කරමු
-                  </p>
-
-
-
-                  <p className="text-sm md:text-base tracking-[0.5em] text-[#2d5a27]/50 font-bold pt-12">
-                    © 2026 {INVITATION.couple.bride} සහ {INVITATION.couple.groom}
-                  </p>
-                </motion.div>
-              </div>
-            </section>
-          </motion.div>
+                <p className="text-sm md:text-base tracking-[0.5em] text-[#2d5a27]/50 font-bold pt-12">
+                  © 2026 {INVITATION.couple.bride} සහ {INVITATION.couple.groom}
+                </p>
+              </motion.div>
+            </div>
+          </section>
+        </motion.div>
       </AnimatePresence>
 
       <audio ref={audioRef} src={backgroundMusic} loop />
