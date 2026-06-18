@@ -420,7 +420,7 @@ export default function WeddingInvitation() {
 
                   <div className="py-6 my-4 border-t border-b border-[#a2c5a0]/50 space-y-3 font-semibold text-[#2d5a27]">
                     <p>2026 ජූලි මස 23 වන බ්‍රහස්පතින්දා,</p>
-                    <p>අමායා හිල්ස් උත්සව ශාලා පරිශ්‍රයට,</p>
+                    <p>අමායා හිල්ස් පරිශ්‍රයට,</p>
                     <p>ඔබට</p>
                     <p className="text-lg md:text-xl font-bold">පැමිණෙන මෙන් ගෞරවයෙන් ආරාධනා කර සිටිමු.</p>
                   </div>
